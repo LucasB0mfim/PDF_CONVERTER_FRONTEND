@@ -1,35 +1,33 @@
-<div class="home">
-  <div class="home__container">
-    <form class="home__form">
+<div class="home__container">
+  <form class="home__form">
 
-      <div class="home__title">
-        <h1 class="roboto-semibold">PdfConverter</h1>
-        <p class="roboto-regular">Selecione ou arraste um arquivo .docx no botão abaixo</p>
-      </div>
+    <div class="home__title">
+      <h1 class="roboto-semibold">Converta WORD para PDF</h1>
+      <p class="roboto-regular">Selecione ou arraste o arquivo .docx no botão abaixo para converter em pdf</p>
+    </div>
 
-      <div class="home__fields">
-        @if (selectedFile === null) {
-          <input type="file" class="home__fields-input" (change)="onFileSelected($event)" accept=".docx" required />
-        } @else {
-          <button type="button" class="home__button-file" (click)="onHome()" [disabled]="isLoading">
-              @if (!isLoading) {
-                <span>{{ selectedFile.name }}</span>
-              } @else {
-                <mat-progress-spinner mode="indeterminate" diameter="20" class="button-spinner"></mat-progress-spinner>
-              }
-          </button>
-        }
-      </div>
+    <div class="home__fields">
+      @if (selectedFile === null) {
+        <input type="file" class="home__fields-input" (change)="onFileSelected($event)" accept=".docx" required />
+      } @else {
+        <button type="button" class="home__button-file" (click)="onHome()" [disabled]="isLoading">
+            @if (!isLoading) {
+              <span class="roboto-regular">{{ selectedFile.name }}</span>
+            } @else {
+              <mat-progress-spinner mode="indeterminate" diameter="40" class="button-spinner"></mat-progress-spinner>
+            }
+        </button>
+      }
+    </div>
 
-      <div class="home__alert-message">
-        @if (invalidFileMessage) {
-          <p class="home__alert-message-error roboto-semibold">Arquivo Inválido!</p>
-        }
-        @if (nullFileMessage) {
-          <p class="home__alert-message-error roboto-semibold">Nenhum arquivo foi selecionado!</p>
-        }
-      </div>
+    <div class="home__alert-message">
+      @if (invalidFileMessage) {
+        <p class="home__alert-message-error roboto-semibold">Arquivo Inválido!</p>
+      }
+      @if (nullFileMessage) {
+        <p class="home__alert-message-error roboto-semibold">Nenhum arquivo foi selecionado!</p>
+      }
+    </div>
 
-    </form>
-  </div>
+  </form>
 </div>
